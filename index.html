@@ -1,0 +1,677 @@
+<!DOCTYPE html>
+
+
+
+<head>
+
+
+
+	<meta charset="utf-8">
+
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+
+	<title>반응형웹페이지메인</title>
+
+
+	<style>
+
+		* {margin:0; box-sizing: border-box;}
+
+		ul,li,ol {list-style:none; margin: 0; padding:0;}
+
+		#wrap{width: 100%; height: 2500px; margin: 0 auto;}
+		#wrap > header { width: 100%; height: 200px; opacity: 0.9; position: absolute; left:0; top:0; z-index: 3; }
+
+
+		#slider {max-width:100%; background-image:url("img/slider.jpg"); height:900px; background-size:cover; background-position:center;}
+
+
+
+		nav {width: 100%; height: 30px; margin: 0 auto;}
+		nav > ul {justify-content: center; align-items: center; display: flex; text-align: center;}
+		nav > ul > li {width: 90px; height: 30px; font-size: 15px; color: #fff; margin: 0 0 0 10px; color: #bc8d4b;}
+		nav > ul > li > a {color: #fff; text-decoration: none;}
+		nav > ul > li > .licolor {color: #bc8d4b;}
+
+
+		.address{width: 150px; height: 60px; float: right;}
+		.address > p {font-size: 13px; color: #fff;}
+
+
+		.num {width: 150px; height: 35px; }
+		.num > p {font-size: 13px; color: #fff; text-align: right;}
+
+
+		.logo{width: 120px; height: 120px; margin: 0 auto;}
+		.logo > img{width: 100%; height: 120px;}
+
+
+		.b{display: block;}
+		.a{display: none;}
+
+		/*--------------------------------헤더끝--------------------------------*/
+
+		#wrap > #slider > .slidertext {width: 100%; height: 225px; position: absolute; top: 36%; margin: 0 auto; } 
+
+		#wrap > #slider > .slidertext > .slidertextbox{width: 100%; height: 225px; text-align: center; margin: 0 auto; color: #fff;}
+
+		#wrap > #slider > .slidertext > .slidertextbox > h1 { font-size: 108px; }
+
+		#wrap > #slider > .slidertext > .slidertextbox > p { margin-bottom: 30px; font-size: 16px; }
+
+		#wrap > #slider > .slidertext > .slidertextbox > button { color: #fff; border: 2px solid #fff; font-size: 12px; padding: 10px 25px; border-radius: 0; background: 0 0;cursor: pointer;}
+
+		#wrap > #slider > .slidertext > .slidertextbox > button:hover {background-color: #bc8d4b; color: #fff; transition: 0.5s;}
+
+		/*---------------------슬라이더끝-----------------------------*/
+
+		#wrap > #product  {width: 100%; height: 215px; background-color: #eee; margin: 0 auto;}
+
+		#product > #iconbox {width: 100%; height: 215px; margin: 0 auto; display: flex; justify-content: center;align-items: center;background-color:silver}
+
+		#product >  #iconbox > .iconcase { width: 450px; height: 200px;  float: left; margin: 10px 0 0 10px;  display: flex; justify-content: space-around; }
+
+		#product > #iconbox > .iconcase > img { width: 100px; height: 100px; margin: 40px 0 0 0; }
+
+		#product > #iconbox > .iconcase> .icontext { width: 280px; height: 100px;  margin: 50px 0 0 0; float: right; }
+
+		#product > #iconbox > .iconcase > .icontext > h5 { text-align: left; font-size: 23px; font-weight: 700; line-height: 1.4em; color: #252525; }
+
+		#product > #iconbox > .iconcase > .icontext > span  { float: left; font-size: 16px; line-height: 1.7; color: #252525; }
+
+		/*------------------아이콘끝--------------------------------------*/
+
+		#product > #history { width:100%; height: 500px;}
+
+		#history > .historybox { width: 65%; height: 500px;  margin: 0 auto; }
+
+		#history > .historybox > .historyimg { width: 40%; height: 80%;  float: right; margin: 70px 0 0 0; }
+
+		#history > .historybox > .historyimg > img { width: 100%; height: 100%;  }
+
+		#history > .historybox > .historytext { width: 55%; height: 500px;}
+
+		#history > .historybox > .historytext > h3 { width: 100%; height: 20px;  float: left; margin-top: 120px; line-height: 0.2em; font-size: 30px;}
+
+		#history > .historybox > .historytext > span { width: 70%; height: 90px;  line-height: 1em; display:block; font-size: 18px;  margin-top: 0px;  margin-left: 2px;  }
+
+		#history > .historybox > .historytext > .historybtn { width: 170px; height: 50px; float: left; margin: 40px 0 0 10px;  }
+
+		#history > .historybox > .historytext > .historybtn > button {width: 135px; height: 50px; border: 2px solid #000; background-color: #fff; font-size: 12px; border-radius: 0; font-weight:bold; text-align: center; cursor: pointer; } 
+
+		#history > .historybox > .historytext > .historybtn > button:hover { background-color: #bc8d4b; color: #fff; transition: 0.5s; border: none; }
+
+		/*-------------------------history끝------------------------*/
+
+		#content {width:100%; height:400px; margin:0 auto; background-image: url("img/back1.jpg"); background-attachment: fixed; background-size:cover; }
+
+		#content > .foodbox  { width: 100%; height: 400px; background-color: transparent; display: flex; align-items: center; }
+
+		#content > .foodbox > .foodbox2 { width: 275px; height: 275px; }
+
+		#content > .foodbox > .foodbox2 > img { width: 100%; height: 100%; }
+
+		/*-------------------------베너끝---------------------------*/
+
+		#menu {width: 100%; height: 1000px; margin: 0 auto; margin: 0 auto; display: flex; justify-content: center; align-content: center; flex-wrap: wrap; }
+		#menu > #menubox { width: 1130px; height: 850px;  display: flex; flex-direction: column; text-align: center; }
+		#menu > #menubox > .menuh3 { width: 100%; height: 25px;  margin-top: 20px; font-size: 16px; font-weight: 400; letter-spacing: 5px; }
+		#menu > #menubox > .menuh2 {  width: 25%; height: 65px;  font-size: 40px; font-weight: 700;  margin: 10px auto; }
+		#menu > #menubox > .menup {  width: 100%; height: 60px;  font-size: 16px;  line-height: 20px; } 
+
+		#menu > #menubox > #menubox2 { width: 100%; height: 260px;  margin-top: 30px; }
+		#menu > #menubox > #menubox2 > h4 { font-size: 20px; font-weight: 600; height: 12%; margin-bottom: 1%;}
+		#menu > #menubox > #menubox2 > .menubox2s { width: 50%; height: 85%; margin: 0 auto; float: left; }
+		#menu > #menubox > #menubox2 > .menubox2s > .menubox2-1 { width: 100%; height: 100px;  margin-bottom: 20px;  display: flex; }
+		#menu > #menubox > #menubox2 > .menubox2s > .menubox2-1 > .menubox2img { width: 30%; height: 100%; }
+		#menu > #menubox > #menubox2 > .menubox2s > .menubox2-1 > .menubox2img > img { width: 100%; height: 100%; }
+		#menu > #menubox > #menubox2 > .menubox2s > .menubox2-1 > .menutext { width: 70%; height: 100%; display: flex; justify-content: space-between;}
+		#menu > #menubox > #menubox2 > .menubox2s > .menubox2-1 > .menutext > .menutext2 { display: flex; flex-direction: column; text-align: left;}
+		#menu > #menubox > #menubox2 > .menubox2s > .menubox2-1 > .menutext > .menutext2 > h2 { font-size: 16px; float: left; margin: 10px 10px 0;}
+		#menu > #menubox > #menubox2 > .menubox2s > .menubox2-1 > .menutext > .menutext2 > h4 { font-size: 13px; float: left; margin-left: 10px; font-weight: 300;}
+		#menu > #menubox > #menubox2 > .menubox2s > .menubox2-1 > .menutext > p { margin: 10px; font-weight: bold; }
+
+		#menu > #menubox > #menubox2 > .menubox3s { width: 50%; height: 85%; margin: 0 auto; float: right; }
+		#menu > #menubox > #menubox2 > .menubox3s > .menubox3-1 { width: 100%; height: 100px;   margin-bottom: 20px; display: flex; }
+		#menu > #menubox > #menubox2 > .menubox3s > .menubox3-1 > .menubox3img { width: 30%; height: 100%; }
+		#menu > #menubox > #menubox2 > .menubox3s > .menubox3-1 > .menubox3img > img { width: 100%; height: 100%; }
+		#menu > #menubox > #menubox2 > .menubox3s > .menubox3-1 > .menutext { width: 70%; height: 100%;  display: flex; justify-content: space-between;}
+		#menu > #menubox > #menubox2 > .menubox3s > .menubox3-1 > .menutext > .menutext3 { display: flex; flex-direction: column; text-align: left;}
+		#menu > #menubox > #menubox2 > .menubox3s > .menubox3-1 > .menutext > .menutext3 > h2 { font-size: 16px; float: left; margin: 10px 10px 0;}
+		#menu > #menubox > #menubox2 > .menubox3s > .menubox3-1 > .menutext > .menutext3 > h4 { font-size: 13px; float: left; margin-left: 10px; font-weight: 300;}
+		#menu > #menubox > #menubox2 > .menubox3s > .menubox3-1 > .menutext > p { margin: 10px; font-weight: bold; }
+
+		#menu > #menubox > #menubox4 { width: 100%; height: 260px;  margin-top: 30px; }
+		#menu > #menubox > #menubox4 > h4 { font-size: 20px; font-weight: 600; height: 12%; margin-bottom: 1%;}
+
+		#menu > #menubox > #menubox4 > .menubox4s { width: 50%; height: 85%;  margin: 0 auto; float: left; }
+		#menu > #menubox > #menubox4 > .menubox4s > .menubox4-1 { width: 100%; height: 100px;  margin-bottom: 20px;  display: flex;}
+		#menu > #menubox > #menubox4 > .menubox4s > .menubox4-1 > .menubox4img { width: 30%; height: 100%; }
+		#menu > #menubox > #menubox4 > .menubox4s > .menubox4-1 > .menubox4img > img { width: 100%; height: 100%; }
+		#menu > #menubox > #menubox4 > .menubox4s > .menubox4-1 > .menutext { width: 70%; height: 100%;  display: flex; justify-content: space-between;}
+		#menu > #menubox > #menubox4 > .menubox4s > .menubox4-1 > .menutext > .menutext4 { display: flex; flex-direction: column; text-align: left;}
+		#menu > #menubox > #menubox4 > .menubox4s > .menubox4-1 > .menutext > .menutext4 > h2 { font-size: 16px; float: left; margin: 10px 10px 0;}
+		#menu > #menubox > #menubox4 > .menubox4s > .menubox4-1 > .menutext > .menutext4 > h4 { font-size: 13px; float: left; margin-left: 10px; font-weight: 300;}
+		#menu > #menubox > #menubox4 > .menubox4s > .menubox4-1 > .menutext > p { margin: 10px; font-weight: bold; }
+
+		#menu > #menubox > #menubox4 > .menubox5s { width: 50%; height: 85%;  margin: 0 auto; float: right; }
+		#menu > #menubox > #menubox4 > .menubox5s > .menubox5-1 { width: 100%; height: 100px;   margin-bottom: 20px; display: flex; }
+		#menu > #menubox > #menubox4 > .menubox5s > .menubox5-1 > .menubox5img { width: 30%; height: 100%; }
+		#menu > #menubox > #menubox4 > .menubox5s > .menubox5-1 > .menubox5img > img { width: 100%; height: 100%; }
+		#menu > #menubox > #menubox4 > .menubox5s > .menubox5-1 > .menutext { width: 70%; height: 100%;  display: flex; justify-content: space-between; }
+		#menu > #menubox > #menubox4 > .menubox5s > .menubox5-1 > .menutext > .menutext5 { display: flex; flex-direction: column; text-align: left;}
+		#menu > #menubox > #menubox4 > .menubox5s > .menubox5-1 > .menutext > .menutext5 > h2 { font-size: 16px; float: left; margin: 10px 10px 0;}
+		#menu > #menubox > #menubox4 > .menubox5s > .menubox5-1 > .menutext > .menutext5 > h4 { font-size: 13px; float: left; margin-left: 10px; font-weight: 300;}
+		#menu > #menubox > #menubox4 > .menubox5s > .menubox5-1 > .menutext > p { margin: 10px; font-weight: bold; }
+
+		#menu > #menubox > #menubtn { width: 100%; height: 50px;  margin-top: 2%; display: flex; justify-content: center; }
+		#menu > #menubox > #menubtn > button { width: 135px; height: 50px; color: #000; border: 2px solid #000; font-size: 12px; padding: 10px 25px; background: #fff; font-family: 'Poppins', sans-serif;  cursor: pointer; }
+		#menu > #menubox > #menubtn > button:hover { background-color: #bc8d4b; color: #fff; transition: 0.5s; border: none; }
+		/*---------------------------메뉴-------------------------------------------*/
+		.content2 {width:100%; height:400px; margin:0 auto; background-image: url("img/back2.jpg"); background-attachment: fixed; background-size:cover; }
+		.content2 > .winebox { width: 100%; height: 400px; text-align: center; margin: 0 auto;  display: flex; flex-direction: column; justify-content: center; align-items: center; color: #fff;} 
+		.content2 > .winebox  > h1 { font-size: 54px; }
+		.content2 > .winebox  > h4 { font-size: 15px; font-weight: 500; }
+		.content2 > .winebox  > p { margin: 15px 0 10px; font-size: 16px; }
+		
+		/*------------------------베너2끝-------------------------*/
+		#wine { width: 100%; height: 800px;  display: flex; justify-content: space-around; align-items: center; }
+		#wine > .winebox2 { width: 60%; height: 80%;  margin: 0 auto; display: flex; align-items: center; justify-content: space-between;}
+		#wine > .winebox2 > .wineimg { width: 45%; height: 80%;  float: left; }
+		#wine > .winebox2 > .wineimg > img { width: 100%; height: 100%; }
+
+		#wine > .winebox2 > .winetext2 { width: 50%; height: 80%; text-align: right; } 
+		#wine > .winebox2 > .winetext2 > h3 { font-size: 14px; font-weight: 400; }
+		#wine > .winebox2 > .winetext2 > h2 { font-size: 54px; }
+		#wine > .winebox2 > .winetext2 > .winep1 { font-size: 24px; margin: 5px 0px;  }
+		#wine > .winebox2 > .winetext2 > .winep2 { font-size: 16px; margin: 30px 0px; line-height: 25px;}
+		#wine > .winebox2 > .winetext2 > .winebtn { width: 170px; height: 50px; float: right; margin: 5px 0 0 10px;  }
+		#wine > .winebox2 > .winetext2 > .winebtn > button {  width: 135px; height: 50px;  border: 2px solid #000; background-color: #fff; font-size: 12px; border-radius: 0; font-weight: bold; text-align: center; cursor: pointer; } 
+		#wine > .winebox2 > .winetext2 > .winebtn > button:hover { background-color: #bc8d4b; color: #fff; transition: 0.5s; border: none; }
+
+		/*------------------------------와인끝----------------------------*/
+		#content3 {width:100%; height:400px; margin:0 auto; background-image: url("img/back3.jpg"); background-attachment: fixed; background-size:cover; }
+		#content3 > .pibox { width: 100%; height: 400px; text-align: center; margin: 0 auto;  display: flex; flex-direction: column; justify-content: center; align-items: center; color: #fff;} 
+		#content3 > .pibox  > h1 { font-size: 54px; margin-bottom: 10px; }
+		#content3 > .pibox  > h4 { font-size: 15px; font-weight: 500; margin-bottom: 5px; }
+		#content3 > .pibox  > p { margin: 15px 0 10px; font-size: 16px; }
+
+		/*--------------------섹션끝--------------------------------*/
+
+		footer { width: 100%; height: 250px; margin-top:100px }
+		footer > #footerbox { width: 100%; height: 220px;  margin: 0 auto; display: flex; flex-direction: column; justify-content: center; align-items: center; }
+		footer > #footerbox > .footertextbox { width: 100%; height: 110px;  margin: 10px; display: flex; justify-content: center; align-items: center; }
+		footer > #footerbox > .footertextbox > .footertext { width: 380px; height: 110px; margin: 10px;  text-align: center;}
+		footer > #footerbox > .footertextbox > .footertext > h5 { font-size: 24px; margin-bottom: 10px; }
+		footer > #footerbox > .footertextbox > .footertext > p { font-size: 16px; line-height: 170%; }
+		footer > #footerbox > .footertext2 { width: 100%; height: 30px;  text-align: center; }
+		footer > #footerbox > .footertext2 > p { font-size: 12px; color: #999; margin-top: 5px; }
+
+	</style>
+
+
+
+	<script src="https://code.jquery.com/jquery-2.2.3.min.js"></script>
+
+
+	<script>
+
+
+		$(function(){
+
+
+
+			$(".a").click(function(){
+
+
+
+				$(".b").slideToggle();
+
+			});
+
+		});
+
+		$(window).resize(function(){
+
+			if(window.innerWidth>=768){
+
+				$('.b').show();
+
+			}
+
+		});
+
+	</script>
+
+</head>
+
+<body>
+
+	<div id="wrap">
+		<header>
+			<div id="main">
+				<div class="address">
+					<p> 40 Park Ave, Brooklyn,
+						<br>
+					New York 70250 </p>
+
+
+				</div>
+
+
+				<div class="num">
+
+					<p> Book Now  
+						<br>
+					+1-222-333-444 </p>
+
+				</div>
+
+				<div class="logo">
+
+					<img src="img/logo.png" alt="logo"> 
+
+				</div>
+
+
+				<nav id="nav1">
+
+					<div class="bar2">
+
+					</div>
+
+					<ul>
+
+						<li><a href="#" class="licolor">HOME</a></li>
+
+						<li><a href="#">MENU</a></li>
+
+						<li><a href="#">PAGES</a></li>
+
+						<li><a href="#">RESERVE</a></li>
+
+						<li><a href="#">GALLERY</a></li>
+
+						<li><a href="#">BLOG</a></li>
+
+						<li><a href="#"> CONTACT</a></li>
+
+						<li><a href="#">BUY</a></li>
+
+					</ul>
+
+				</nav>
+
+
+				<div id="bar">
+
+				</div>
+
+			</div>
+
+		</header>
+
+		<!---슬라이더--->
+
+		<div id="slider">
+
+			<div class="slidertext">
+
+				<div class="slidertextbox">
+
+					<h1>WELCOME</h1>
+
+					<p>Traditional dishes with local products of highest quality</p>
+
+					<button> BOOK A TABLE </button>
+
+				</div> 
+
+			</div>
+
+		</div>
+
+		<!---섹션--->
+
+		<section>
+
+
+
+			<div id="product">
+
+				<!---아이콘바--->
+
+				<div id="iconbox">
+
+					<div class="iconcase">
+
+						<img src="img/mainicon1.png" alt="icon1">
+
+						<div class="icontext">
+
+							<h5>FRESH FOOD</h5>
+
+							<span> Donec lacinia magna sit amet arcu aliquet luctus maecenas vehicula. </span> 
+
+						</div>
+
+					</div>
+
+					<div class="iconcase">
+
+						<img src="img/mainicon2.png" alt="icon2">
+
+						<div class="icontext">
+
+							<h5>CHEF'S SPECIALS</h5>
+
+							<span> Donec lacinia magna sit amet arcu aliquet luctus maecenas vehicula.  </span> 
+
+						</div>
+
+					</div>
+
+					<div class="iconcase">
+
+						<img src="img/mainicon3.png" alt="icon3">
+
+						<div class="icontext">
+
+							<h5> GOOD WINE</h5>
+
+							<span> Donec lacinia magna sit amet arcu aliquet luctus maecenas vehicula. </span> 
+
+						</div>
+
+					</div>
+
+				</div>
+
+				<!-----------------------------역사------------------------>
+
+				<div id="history">
+
+					<div class="historybox">
+
+						<div class="historyimg">
+
+							<img src="img/history.jpg" alt="history">
+
+						</div>
+
+						<div class="historytext">
+
+							<h3>HISTORY</h3>
+
+							<p>Welcome to Dina, a modern restaurant with a focus on premium food tastes</p>
+
+							<span>We invite you to celebrate our restaurant’s delicious recipes whether you are here for a business lunch or dinner. Discover new tastes and inspired recipes from all over the world.</span>
+
+							<div class="historybtn">
+
+								<button> FIND MORE </button>
+
+							</div>
+
+
+
+						</div>
+
+					</div>
+
+				</div>
+
+				<!----------------베너-------------->
+
+				<div id="content">
+
+					<div class="foodbox">
+
+						<div class="foodbox2">
+
+							<img src="img/HOUSE.png" alt="back1-1">
+
+						</div>
+
+					</div>
+
+				</div>
+
+				<!----------메뉴---------------->
+
+				<div id="menu">
+
+					<div id="menubox">
+						<h3 class="menuh3"> DISCOVER </h3>
+						<h2 class="menuh2"> OUR MENU </h2>
+						<p class="menup"> Explore texture, color and of course the ultimate tastes with our menu of the season. All the ingredients are fresh and carefully selected by our chefs. Enjoy an extraordinary dinning experience. </p>
+
+
+						<div id="menubox2">
+							<h4> MAIN COURESES </h4>
+							<div class="menubox2s">
+								<div class="menubox2-1">
+									<div class="menubox2img">
+										<img src="img/menu1.jpg" alt="menu1">
+									</div>
+
+									<div class="menutext">
+										<div class="menutext2">
+											<h2> BRAISED PORK CHOPS </h2>
+											<h4> 4 bone-in pork chops, olive oil, garlic, onion </h4>
+										</div>
+										<p> $21.00 </p>
+									</div>
+								</div>
+
+								<div class="menubox2-1">
+									<div class="menubox2img">
+										<img src="img/menu3.jpg" alt="menu3">
+									</div>
+
+									<div class="menutext">
+										<div class="menutext2">
+											<h2> COCONUT FRIED CHICKEN </h2>
+											<h4> 8 chicken pieces, coconut milk, oil </h4>
+										</div>
+										<p> $19.00 </p>
+									</div>
+								</div>
+							</div>
+
+							<div class="menubox3s">
+								<div class="menubox3-1">
+									<div class="menubox3img">
+										<img src="img/menu2.jpg" alt="menu2">
+									</div>
+
+									<div class="menutext">
+										<div class="menutext3">
+											<h2> PRIME RIB </h2>
+											<h4> Rib, rosemary, black pepper, red wine </h4>
+										</div>
+										<p> $20.00 </p>
+									</div>
+
+								</div>
+
+								<div class="menubox3-1">
+									<div class="menubox3img">
+										<img src="img/menu4.jpg" alt="menu4">
+									</div>
+
+									<div class="menutext">
+										<div class="menutext3">
+											<h2> SRIRACHA BEEF SKEWERS </h2>
+											<h4> Beef, garlic, sesame oil, vinegar </h4>
+										</div>
+										<p> $19.00 </p>
+									</div>
+								</div>
+							</div>
+						</div>
+
+						<div id="menubox4">
+							<h4> STARTERS </h4>
+							<div class="menubox4s">
+								<div class="menubox4-1">
+									<div class="menubox4img">
+										<img src="img/menu5.jpg" alt="menu5">
+									</div>
+
+									<div class="menutext">
+										<div class="menutext4">
+											<h2> TOMATO BRUSCHETTA </h2>
+											<h4> Tomatoes / Olive Oil / Cheese </h4>
+										</div>
+										<p> $4.00 </p>
+									</div>
+								</div>
+
+								<div class="menubox4-1">
+									<div class="menubox4img">
+										<img src="img/menu6.jpg" alt="menu6">
+									</div>
+
+									<div class="menutext">
+										<div class="menutext4">
+											<h2> AVOCADO & MANGO SALSA </h2>
+											<h4> Avocado / Mango / Tomatoes </h4>
+										</div>
+										<p> $5.00 </p>
+									</div>
+								</div>
+							</div>
+
+							<div class="menubox5s">
+								<div class="menubox5-1">
+									<div class="menubox5img">
+										<img src="img/menu7.jpg" alt="menu7">
+									</div>
+
+									<div class="menutext">
+										<div class="menutext5">
+											<h2> MARINATED GRILLED SHRIMP </h2>
+											<h4> Fresh Shrimp / Oive Oil / Tomato Sauce </h4>
+										</div>
+										<p> $7.00 </p>
+									</div>
+
+								</div>
+
+								<div class="menubox5-1">
+									<div class="menubox5img">
+										<img src="img/menu8.jpg" alt="menu8">
+									</div>
+
+									<div class="menutext">
+										<div class="menutext5">
+											<h2> BAKED POTATO SKINS </h2>
+											<h4> Potatoes / Oil / Garlic </h4>
+										</div>
+										<p> $9.00 </p>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div id="menubtn">
+							<button> VIEW MENU </button>
+						</div>
+					</div>
+				</div>
+
+				<!-------------베너2------------------>
+
+
+				<div class="content2">
+					<div class="winebox">
+						<h4>RESERVE A TABLE</h4>
+						<h1>OPEN HOURS<h1>
+							<p>Saturday – Sunday: 9 AM – 1 PM</p>
+							
+
+						</div>
+
+					</div>
+					<!------------와인----------------------->	
+					<div id="wine">
+						<div class="winebox2">
+							<div class="wineimg">
+								<img src="img/wine2.jpg"alt="wineimg">
+							</div>
+							<div class="winetext2">
+								<h3>EXPERIENCE</h3>
+								<h2>WINE</h2>
+								<p class="winep1"> A unique dinner works best with wine pairing </p>
+								<p class="winep2"> You can choose from a variety of styles, light and easy drinking, fresh and aromatic white wines or you could try intense and elegant red wines.<br>Creative cuisine involves sophisticated wines.</p>
+								<div class="winebtn">
+									<button>FIND MORE</button>
+								</div>
+
+							</div>
+						</div>
+
+					</div>
+
+					<!------------베너3------------------>
+
+					<div id="content3">
+						<div class="pibox">
+							<h4> DAILY AT 1 PM TILL 4 PM </h4>
+							<h1> HAPPY HOURS </h1>
+							<p> MDonec suscipit lobortis ornare. Aenean vel varius odio. Cras ligula odio, congue vel adipiscing non, congue vitae neque.</p>
+
+						</div>
+					</div>
+
+				</section>
+
+
+
+				<footer>
+					<div id="footerbox">
+						<div class="footertextbox">
+							<div class="footertext">
+								<h5> ADDRESS: </h5>
+								<p>Dina Restaurant 
+									<br>
+								40 Park Ave, Brooklyn, New York 70250 </p>
+							</div>
+
+							<div class="footertext">
+								<h5> RESERVATION: </h5>
+								<p> 000-111-222 
+									<br>
+								contact@example.com </p>
+							</div>
+
+							<div class="footertext">
+								<h5> OPEN HOURS: </h5>
+								<p>Monday - Friday: 10 AM - 11 PM
+									<br>
+								Saturday - Sunday: 9 AM - 1 PM </p>
+							</div>
+						</div>
+						<ul>
+							<li><a href="#"></a></li>
+
+
+						</ul>
+						<div class="footertext2">
+							<p>2022 © DINA . DESIGNED BY MATCHTHEMES</p>
+
+						</div>
+
+					</div>
+
+				</footer>
+
+			</div>
+
+		</body>
+
+
+
+		</html>
